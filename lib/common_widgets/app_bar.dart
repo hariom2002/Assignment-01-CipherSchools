@@ -41,7 +41,7 @@ class _CommonAppBarState extends State<CommonAppBar> {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.menu),
+          icon: const Icon(Icons.keyboard_arrow_down),
           color: Colors.black,
         ),
         const SizedBox(width: 10),
