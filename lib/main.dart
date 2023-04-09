@@ -1,6 +1,8 @@
 import 'package:assignment_1/common_widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 
+import 'features/home_page.dart';
+
 void main() {
   runApp(const MyApp());
 }

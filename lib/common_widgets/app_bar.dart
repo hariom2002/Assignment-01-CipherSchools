@@ -1,62 +1,72 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-// class MyAppBar extends StatefulWidget implements PreferredSizeWidget {
-//   final VoidCallback onBrowsePressed;
-//   final VoidCallback onToggleNightMode;
-//   final VoidCallback onNotificationPressed;
-//   final VoidCallback onSearchPressed;
+class CommonAppBar extends StatefulWidget implements PreferredSizeWidget {
+  const CommonAppBar({Key? key}) : super(key: key);
 
-//   const MyAppBar({
-//     Key? key,
-//     required this.onBrowsePressed,
-//     required this.onToggleNightMode,
-//     required this.onNotificationPressed,
-//     required this.onSearchPressed,
-//   }) : super(key: key);
+  @override
+  State<CommonAppBar> createState() => _CommonAppBarState();
 
-//   @override
-//   State<MyAppBar> createState() => _MyAppBarState();
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
 
-//   @override
-//   // TODO: implement preferredSize
-//   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 10);
-// }
+class _CommonAppBarState extends State<CommonAppBar> {
+  bool isDarkMode = false;
 
-// class _MyAppBarState extends State<MyAppBar> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return AppBar(
-//       title: Row(
-//         children: [
-//           Image.asset(
-//             'assets/images/logo.png', // replace with your logo image path
-//             height: 30,
-//           ),
-//           const SizedBox(width: 8),
-//           const Text('CipherSchool'),
-//         ],
-//       ),
-//       actions: [
-//         IconButton(
-//           onPressed: widget.onBrowsePressed,
-//           icon: const Icon(Icons.keyboard_arrow_down),
-//         ),
-//         IconButton(
-//           onPressed: widget.onToggleNightMode,
-//           icon: const Icon(Icons.nightlight_round),
-//         ),
-//         IconButton(
-//           onPressed: widget.onNotificationPressed,
-//           icon: const Icon(Icons.notifications),
-//         ),
-//         IconButton(
-//           onPressed: widget.onSearchPressed,
-//           icon: const Icon(Icons.search),
-//         ),
-//       ],
-//     );
-//   }
-
-//   @override
-//   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: ThemeData(
+        brightness: isDarkMode
+            ? Brightness.dark
+            : Brightness.light, // set brightness to dark
+      ),
+      child: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        // leading: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   // child: Image.asset(
+        //   //   // 'assets/images/logo.png', // replace with your logo asset path
+        //   //   width: 40,
+        //   //   height: 40,
+        //   // ),
+        // ),
+        title: const Text(
+          'ChipherSchools',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.menu),
+            color: Colors.black,
+          ),
+          const SizedBox(width: 10),
+          Switch(
+            value: isDarkMode,
+            activeColor: Colors.grey,
+            onChanged: (bool newValue) {
+              setState(() {
+                isDarkMode = newValue;
+              });
+            },
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.notifications),
+            color: Colors.black,
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.search),
+            color: Colors.black,
+          ),
+        ],
+      ),
+    );
+  }
+}

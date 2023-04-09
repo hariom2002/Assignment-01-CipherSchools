@@ -14,10 +14,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
+      backgroundColor: Colors.black,
+      // appBar: MyAppBar(),
       body: Center(
-        child: Container(
-          child: const Text("This is Home page"),
+        child: Text(
+          "This is Home page",
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
       ),
     );
