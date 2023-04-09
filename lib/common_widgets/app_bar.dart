@@ -25,11 +25,11 @@ class _CommonAppBarState extends State<CommonAppBar> {
       elevation: 0,
       // leading: Padding(
       //   padding: const EdgeInsets.all(8.0),
-      //   // child: Image.asset(
-      //   //   // 'assets/images/logo.png', // replace with your logo asset path
-      //   //   width: 40,
-      //   //   height: 40,
-      //   // ),
+      //   child: Image.asset(
+      //     'assets/images/logo_image.png', // replace with your logo asset path
+      //     width: 40,
+      //     height: 40,
+      //   ),
       // ),
       title: const Text(
         'ChipherSchools',
