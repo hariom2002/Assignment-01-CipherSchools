@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
   int _page = 0;
   List<Widget> pages = [
     // total 4 pages in bottom bar
-    const Home(),
+    HomePage(),
     const Courses(),
     const Trending(),
     const MyProfile(),

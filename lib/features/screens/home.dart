@@ -1,146 +1,127 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/app_bar.dart';
-
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  int _currentPage = 0;
-  final List<String> _images = [
-    "assets/images/Blockchain-Banking-Made-More-Simple-Yet-Secure.jpg",
-    "assets/images/best-c-plus-plus.jpg",
-    "assets/images/641ab3c901ad66001c68d594.jpg",
-    "assets/images/Tensorflow-Courses-Certification-1000x563.jpg",
-  ];
-
-  final List<String> _images2 = [
-    "assets/images/nfttt.jpg",
-    "assets/images/41KxYvuThaL.jpg",
-    "assets/images/9798597783734.jpg",
-    "assets/images/free-web-development-courses-certifications.jpg",
-  ];
-
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: CommonAppBar(),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                PageView.builder(
-                  itemCount: _images.length,
-                  itemBuilder: (context, index) {
-                    return Image.asset(
-                      _images[index],
-                      width: size.width,
-                      fit: BoxFit.cover,
-                    );
-                  },
-                  onPageChanged: (value) {
-                    setState(() {
-                      _currentPage = value;
-                    });
-                  },
-                ),
-                Positioned(
-                  top: size.height * 0.15,
-                  left: 20,
-                  child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        _currentPage = (_currentPage - 1) % _images.length;
-                      });
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: size.height * 0.15,
-                  right: 20,
-                  child: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        _currentPage = (_currentPage + 1) % _images.length;
-                      });
-                    },
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          Text(
+            "Welcome to the",
+            style: TextStyle(fontSize: 24),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Recommended Courses",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Future of Learning!",
+                style: TextStyle(fontSize: 24, color: Colors.orange),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Text(
+            "Start Learning by best creators for",
+            style: TextStyle(fontSize: 16),
+          ),
+          Text(
+            "absolutely Free",
+            style: TextStyle(fontSize: 16, color: Colors.orange),
+          ),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.grey[300],
+              ),
+              SizedBox(width: 10),
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.grey[300],
+              ),
+              SizedBox(width: 10),
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.grey[300],
+              ),
+              SizedBox(width: 10),
+              Column(
+                children: [
+                  Text(
+                    "50+",
+                    style: TextStyle(fontSize: 16),
                   ),
-                ),
-                InkWell(
-                  onTap: () {},
-                  child: Row(
+                  Text(
+                    "Mentors",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+              SizedBox(width: 10),
+              Container(
+                height: 30,
+                width: 1,
+                color: Colors.grey[300],
+              ),
+              SizedBox(width: 10),
+              Column(
+                children: [
+                  Text(
+                    "4.5/5",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Row(
                     children: [
-                      Text(
-                        "Popular",
-                        style: TextStyle(
-                          color: Colors.grey,
-                        ),
+                      Icon(
+                        Icons.star,
+                        color: Colors.orange,
                       ),
                       Icon(
-                        Icons.arrow_forward_ios,
-                        size: 16,
-                        color: Colors.grey,
+                        Icons.star,
+                        color: Colors.orange,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color: Colors.orange,
+                      ),
+                      Icon(
+                        Icons.star,
+                        color: Colors.orange,
+                      ),
+                      Icon(
+                        Icons.star_half,
+                        color: Colors.orange,
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(5),
-                  child: InkWell(
-                    onTap: () {},
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        _images2[index % _images2.length],
-                        width: size.width * 0.4,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                  Text(
+                    "Ratings",
+                    style: TextStyle(fontSize: 16),
                   ),
-                );
-              },
-            ),
+                ],
+              ),
+            ],
           ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              "Start Learning Now ->",
+              style: TextStyle(color: Colors.white),
+            ),
+            style: ElevatedButton.styleFrom(primary: Colors.orange),
+          ),
+          SizedBox(height: 20),
+          // Card(
+          //   child: Image.network(
+          //     "https://example.com/image.jpg",
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
         ],
       ),
     );
